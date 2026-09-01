@@ -1,0 +1,50 @@
+"""
+CEFR proficiency levels, plus NATIVE for mother-tongue speakers.
+"""
+enum LanguageLevel {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+  NATIVE
+}
+
+"A language in the catalog, shared across all resources."
+type Language {
+  id: ID!
+  name: String!
+}
+
+"A language a resource knows, with their proficiency in it."
+type ResourceLanguage {
+  id: ID!
+  resourceId: ID!
+  languageId: ID!
+  name: String!
+  level: LanguageLevel!
+}
+
+input CreateLanguageInput {
+  name: String!
+}
+
+input SetResourceLanguageInput {
+  resourceId: ID!
+  languageId: ID!
+  level: LanguageLevel!
+}
+
+extend type Query {
+  languages: [Language!]! @auth
+  resourceLanguages(resourceId: ID!): [ResourceLanguage!]! @auth
+}
+
+extend type Mutation {
+  createLanguage(input: CreateLanguageInput!): Language! @auth
+  deleteLanguage(id: ID!): Boolean! @auth
+  "Adds the language to the resource, or updates the level if already present."
+  setResourceLanguage(input: SetResourceLanguageInput!): ResourceLanguage! @auth
+  removeResourceLanguage(resourceId: ID!, languageId: ID!): Boolean! @auth
+}

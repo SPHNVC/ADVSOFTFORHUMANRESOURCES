@@ -1,0 +1,94 @@
+/* Reuses .modal-backdrop, .modal-header, .modal-actions and the button
+   classes defined alongside the Add resource modal. */
+
+.modal--narrow {
+  width: 30vw;
+  min-width: 380px;
+  max-width: 460px;
+}
+
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.cv-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.cv-field select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.cv-formats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cv-formats legend {
+  padding: 0 0 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.cv-format {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0 0.6rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.cv-format:hover { border-color: var(--accent, #2563eb); }
+
+.cv-format--active {
+  border-color: var(--accent, #2563eb);
+  background: color-mix(in srgb, var(--accent, #2563eb) 7%, transparent);
+}
+
+.cv-format input { margin: 0; accent-color: var(--accent, #2563eb); }
+
+.cv-format-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.cv-format-hint {
+  grid-column: 2;
+  font-size: 0.78rem;
+  color: var(--text-muted, #6b7280);
+}
+
+.cv-state {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #6b7280);
+}
+
+.cv-state--error { color: var(--danger, #dc2626); }
+
+@media (max-width: 640px) {
+  .modal--narrow { width: 92vw; min-width: 0; }
+}

@@ -1,0 +1,59 @@
+"""
+How many resources a project needs for one skill, and how many of those slots
+are currently filled by assignments tagged with that skill.
+"""
+type SkillRequirement {
+  skillId: ID!
+  skillName: String!
+  needed: Int!
+  filled: Int!
+}
+
+type ProjectStaffing {
+  projectId: ID!
+  projectName: String!
+  status: ProjectStatus!
+  totalNeeded: Int!
+  totalAssigned: Int!
+  requirements: [SkillRequirement!]!
+}
+
+type SkillDemand {
+  skillId: ID!
+  skillName: String!
+  demand: Int!
+  supply: Int!
+  assignedSupply: Int!
+}
+
+type AvailabilityBucket {
+  availability: Availability
+  count: Int!
+}
+
+type AllocationSummary {
+  free: Int!
+  assigned: Int!
+  blacklisted: Int!
+  byAvailability: [AvailabilityBucket!]!
+}
+
+type ReportSummary {
+  totalProjects: Int!
+  activeProjects: Int!
+  totalResources: Int!
+  openPositions: Int!
+  fillRate: Float!
+  fullyStaffedProjects: Int!
+}
+
+type Reports {
+  summary: ReportSummary!
+  projectStaffing: [ProjectStaffing!]!
+  skillDemand: [SkillDemand!]!
+  allocation: AllocationSummary!
+}
+
+extend type Query {
+  reports: Reports! @auth
+}

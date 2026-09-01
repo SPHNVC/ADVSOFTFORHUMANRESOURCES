@@ -1,0 +1,1 @@
+-- ASSIGNED_TO_PROJECT enum value cannot be dropped from resource_status; nothing to revert here.

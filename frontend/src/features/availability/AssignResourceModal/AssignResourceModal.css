@@ -1,0 +1,77 @@
+.assign-modal {
+  max-width: 720px;
+  width: 90vw;
+}
+
+.assign-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.assign-modal-table th,
+.assign-modal-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.assign-modal-table th {
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.assign-modal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.assign-modal-table select {
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.empty-hint {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.match-score {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  background: var(--code-bg);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.match-score.has-match {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.btn-assign {
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-assign:hover {
+  opacity: 0.85;
+}

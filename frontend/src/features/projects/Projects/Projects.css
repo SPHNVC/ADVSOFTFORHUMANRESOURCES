@@ -1,0 +1,438 @@
+/* ── Page layout ─────────────────────────────────────── */
+.projects-page {
+  padding: 1.5rem;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.projects-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn-primary {
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-primary:not(:disabled):hover {
+  opacity: 0.85;
+}
+
+.btn-ghost {
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-ghost:hover {
+  background: var(--accent-bg);
+}
+
+/* ── Table ───────────────────────────────────────────── */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.projects-table thead tr {
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-table th {
+  padding: 0.65rem 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.projects-table td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.project-row {
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.project-row:hover {
+  background: var(--accent-bg);
+}
+.project-row.is-expanded {
+  background: var(--accent-bg);
+}
+
+.col-expand {
+  width: 36px;
+  text-align: center;
+}
+
+.chevron {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--text);
+  transition: transform 0.2s;
+  user-select: none;
+}
+.chevron.open {
+  transform: rotate(90deg);
+}
+
+.cell-primary {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.col-actions {
+  width: 1px;
+  white-space: nowrap;
+  padding-right: 0.75rem;
+}
+
+.loading-state,
+.error-state {
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.error-state {
+  color: #c0392b;
+}
+
+.btn-danger {
+  margin-left: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e74c3c;
+  background: transparent;
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.btn-danger:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-assignments {
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.btn-assignments:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Skills panel ────────────────────────────────────── */
+.skills-section {
+  margin-bottom: 1rem;
+}
+
+.skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 0.8rem;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.skill-chip input[type='checkbox'] {
+  display: none;
+}
+.skill-chip:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+.skill-chip.selected {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ── Comments panel ──────────────────────────────────── */
+.comments-row td {
+  padding: 0;
+  background: var(--social-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.comments-panel {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.comments-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+
+.no-comments {
+  font-size: 0.85rem;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+
+.comments-list {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.comment-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.5rem;
+  row-gap: 0.1rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.comment-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.comment-at {
+  font-size: 0.75rem;
+  color: var(--text);
+  text-align: right;
+}
+
+.comment-text {
+  grid-column: 1 / -1;
+  font-size: 0.875rem;
+  color: var(--text);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* ── Comment compose ─────────────────────────────────── */
+.comment-compose {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.comment-input {
+  flex: 1;
+  resize: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+.comment-input:focus {
+  outline: none;
+  border-color: var(--accent-border);
+}
+
+.btn-save-comment {
+  flex-shrink: 0;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-save-comment:hover {
+  opacity: 0.85;
+}
+
+/* ── Project status ──────────────────────────────────── */
+.project-status {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.project-status.status-active {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.project-status.status-completed {
+  color: var(--text-muted);
+}
+
+.staffing-none {
+  color: var(--text-muted);
+}
+
+.staffing-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-h);
+}
+
+.staffing-count.is-met {
+  color: #16a34a;
+}
+
+/* ── Status editor in the expanded row ───────────────── */
+.project-status-section {
+  margin-bottom: 1rem;
+}
+
+.project-status-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.project-status-label select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+/* ── Requirements editor ─────────────────────────────── */
+.requirements-section {
+  margin-bottom: 1.25rem;
+}
+
+.requirements-list {
+  list-style: none;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.requirement-skill {
+  min-width: 120px;
+  font-size: 0.875rem;
+  color: var(--text-h);
+}
+
+.requirement-count,
+.requirement-add input {
+  width: 72px;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.requirement-filled {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.requirement-filled.is-met {
+  color: #16a34a;
+}
+
+.requirement-add {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.requirement-add select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,185 @@
+/* Reuses .modal-backdrop, .modal-header and .modal-actions. */
+
+.modal--wide {
+  width: 88vw;
+  max-width: 1200px;
+}
+
+.tpl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tpl-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.tpl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-h);
+}
+.tpl-field--grow { flex: 1; }
+
+.tpl-field input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.tpl-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--text-h);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tpl-checkbox input { accent-color: var(--accent, #2563eb); }
+
+/* ── Split editor ────────────────────────────────────── */
+.tpl-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.tpl-editor-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.tpl-pane-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.tpl-pane-note {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--text-muted, #9ca3af);
+}
+
+.tpl-code {
+  height: 46vh;
+  min-height: 260px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg, #f9fafb);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  tab-size: 2;
+  resize: vertical;
+}
+
+.tpl-preview {
+  height: 46vh;
+  min-height: 260px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #f3f4f6;
+}
+
+.tpl-preview--error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--danger-bg, #fef2f2);
+  border-color: var(--danger, #dc2626);
+  color: var(--danger, #b91c1c);
+  font-size: 0.85rem;
+}
+.tpl-preview--error p { margin: 0; }
+.tpl-preview-hint { color: var(--text-muted, #6b7280); font-size: 0.8rem; }
+
+/* ── Field reference ─────────────────────────────────── */
+.tpl-fields {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.tpl-fields summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.tpl-field-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.tpl-field-group h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted, #6b7280);
+}
+
+.tpl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tpl-chip {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tpl-chip:hover {
+  border-color: var(--accent, #2563eb);
+  color: var(--accent, #2563eb);
+}
+
+.tpl-error {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--danger, #dc2626);
+}
+
+@media (max-width: 900px) {
+  .tpl-editor { grid-template-columns: 1fr; }
+  .tpl-code, .tpl-preview { height: 34vh; }
+}

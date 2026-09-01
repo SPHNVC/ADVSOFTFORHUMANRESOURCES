@@ -1,0 +1,56 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: crm
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/crm?sslmode=disable
+      PORT: 8080
+      JWT_SECRET: dev-secret-change-me
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Opt-in demo data. The profile keeps it out of `docker compose up`; it only
+  # runs when asked for explicitly:
+  #   docker compose --profile seed run --rm seed
+  seed:
+    image: postgres:16-alpine
+    profiles: ["seed"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: postgres
+    volumes:
+      - ./scripts/seed.sql:/seed.sql:ro
+    command: >
+      psql -h db -U postgres -d crm -v ON_ERROR_STOP=1 -f /seed.sql
+
+volumes:
+  pgdata:

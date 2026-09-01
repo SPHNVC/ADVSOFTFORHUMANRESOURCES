@@ -1,0 +1,33 @@
+type ResourceActivity {
+  id: ID!
+  resourceId: ID!
+  name: String!
+  description: String
+  startDate: String!
+  endDate: String!
+}
+
+input CreateResourceActivityInput {
+  resourceId: ID!
+  name: String!
+  description: String
+  startDate: String!
+  endDate: String!
+}
+
+input UpdateResourceActivityInput {
+  name: String!
+  description: String
+  startDate: String!
+  endDate: String!
+}
+
+extend type Query {
+  resourceActivities(resourceId: ID!): [ResourceActivity!]! @auth
+}
+
+extend type Mutation {
+  createResourceActivity(input: CreateResourceActivityInput!): ResourceActivity! @auth
+  updateResourceActivity(id: ID!, input: UpdateResourceActivityInput!): ResourceActivity! @auth
+  deleteResourceActivity(id: ID!): Boolean! @auth
+}

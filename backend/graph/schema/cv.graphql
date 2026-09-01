@@ -1,0 +1,54 @@
+enum CvFormat {
+  PDF
+  DOCX
+}
+
+type CvTemplate {
+  id: ID!
+  name: String!
+  description: String
+  html: String!
+  isDefault: Boolean!
+  createdAt: String!
+  modifiedAt: String!
+}
+
+"""
+A rendered CV. `html` is always populated and is the single source both
+output formats derive from. `docxBase64` is only populated when the
+requested format is DOCX.
+"""
+type RenderedCv {
+  resourceId: ID!
+  templateId: ID!
+  fileName: String!
+  html: String!
+  docxBase64: String
+}
+
+input CreateCvTemplateInput {
+  name: String!
+  description: String
+  html: String!
+  isDefault: Boolean
+}
+
+input UpdateCvTemplateInput {
+  name: String!
+  description: String
+  html: String!
+  isDefault: Boolean!
+}
+
+extend type Query {
+  cvTemplates: [CvTemplate!]! @auth
+  cvTemplate(id: ID!): CvTemplate @auth
+  "Renders a CV for a resource. DOCX bytes are returned base64-encoded."
+  renderCv(resourceId: ID!, templateId: ID!, format: CvFormat!): RenderedCv! @auth
+}
+
+extend type Mutation {
+  createCvTemplate(input: CreateCvTemplateInput!): CvTemplate! @auth
+  updateCvTemplate(id: ID!, input: UpdateCvTemplateInput!): CvTemplate! @auth
+  deleteCvTemplate(id: ID!): Boolean! @auth
+}

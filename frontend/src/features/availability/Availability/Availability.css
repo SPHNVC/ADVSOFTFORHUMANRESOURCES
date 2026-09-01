@@ -1,0 +1,162 @@
+.availability-page {
+  padding: 1.5rem;
+}
+
+.availability-header {
+  margin-bottom: 1rem;
+}
+
+.availability-title {
+  margin: 0;
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+.availability-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Filters ─────────────────────────────────────────── */
+.availability-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+.availability-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.availability-filter input,
+.availability-filter select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.availability-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.availability-count {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.availability-empty {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.availability-muted {
+  color: var(--text-muted);
+}
+
+/* ── Table ───────────────────────────────────────────── */
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.availability-table th,
+.availability-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.availability-table th {
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.availability-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.availability-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.availability-project-tag {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--code-bg);
+  font-size: 0.75rem;
+}
+
+/* Scoped so this page renders standalone rather than depending on whichever
+   other feature stylesheet happens to be in the bundle. */
+.availability-page .status-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.availability-page .badge-free {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+.availability-page .badge-assigned {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
+
+.availability-page .badge-blacklist {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.col-actions {
+  width: 1px;
+  white-space: nowrap;
+  padding-right: 0.75rem;
+}
+
+.availability-page .btn-assign {
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.availability-page .btn-assign:hover {
+  opacity: 0.85;
+}

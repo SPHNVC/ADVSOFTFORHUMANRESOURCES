@@ -1,0 +1,144 @@
+enum ResourceStatus {
+  FREE
+  ASSIGNED_TO_PROJECT
+  BLACKLIST
+}
+
+enum Availability {
+  ASAP
+  ONE_WEEK
+  TWO_WEEKS
+  THREE_WEEKS
+}
+
+type Resource {
+  id: ID!
+  name: String!
+  birthdate: String
+  phone: String
+  email: String
+  status: ResourceStatus!
+  skillIds: [ID!]!
+  street: String
+  number: String
+  block: String
+  flat: String
+  zipCode: String
+  city: String
+  county: String
+  country: String
+  drivingLicence: Boolean!
+  car: Boolean!
+  availability: Availability
+  createdBy: String!
+  createdAt: String!
+  modifiedBy: String!
+  modifiedAt: String!
+}
+
+type Assignment {
+  id: ID!
+  projectId: ID!
+  resourceId: ID!
+  resourceName: String!
+  resourcePhone: String
+  resourceEmail: String
+  skillId: ID
+  assignedAt: String!
+}
+
+"""
+A candidate resource for a project, ranked by how many of the project's still
+unfilled skill requirements it covers.
+"""
+type ResourceMatch {
+  resource: Resource!
+  matchScore: Int!
+  matchingSkillIds: [ID!]!
+  assignedProjectCount: Int!
+}
+
+type ResourceAllocation {
+  resource: Resource!
+  projectCount: Int!
+  projectNames: [String!]!
+}
+
+input MatchFilter {
+  skillIds: [ID!]
+  availability: [Availability!]
+  onlyFree: Boolean
+  search: String
+}
+
+"""
+A candidate project for a resource, ranked by how many of the project's still
+unfilled skill requirements the resource covers.
+"""
+type ProjectMatch {
+  project: Project!
+  matchScore: Int!
+  matchingSkillIds: [ID!]!
+  openPositions: Int!
+}
+
+input ProjectMatchFilter {
+  status: [ProjectStatus!]
+  search: String
+  onlyOpen: Boolean
+}
+
+input CreateResourceInput {
+  name: String!
+  birthdate: String
+  phone: String
+  email: String
+  street: String
+  number: String
+  block: String
+  flat: String
+  zipCode: String
+  city: String
+  county: String
+  country: String
+  drivingLicence: Boolean
+  car: Boolean
+  availability: Availability
+}
+
+input UpdateResourceInput {
+  name: String!
+  birthdate: String
+  phone: String
+  email: String
+  street: String
+  number: String
+  block: String
+  flat: String
+  zipCode: String
+  city: String
+  county: String
+  country: String
+  drivingLicence: Boolean!
+  car: Boolean!
+  availability: Availability
+}
+
+extend type Query {
+  resources: [Resource!]! @auth
+  resource(id: ID!): Resource @auth
+  projectAssignments(projectId: ID!): [Assignment!]! @auth
+  matchResources(projectId: ID!, filter: MatchFilter): [ResourceMatch!]! @auth
+  resourceAllocations: [ResourceAllocation!]! @auth
+  matchProjects(resourceId: ID!, filter: ProjectMatchFilter): [ProjectMatch!]! @auth
+}
+
+extend type Mutation {
+  createResource(input: CreateResourceInput!): Resource! @auth
+  updateResource(id: ID!, input: UpdateResourceInput!): Resource! @auth
+  deleteResource(id: ID!): Boolean! @auth
+  toggleResourceSkill(resourceId: ID!, skillId: ID!): Resource! @auth
+  assignResource(projectId: ID!, resourceId: ID!, skillId: ID): Assignment! @auth
+  unassignResource(projectId: ID!, resourceId: ID!): Boolean! @auth
+  blockResource(id: ID!): Resource! @auth
+}

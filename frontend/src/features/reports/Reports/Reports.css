@@ -1,0 +1,171 @@
+.reports-page {
+  padding: 1.5rem;
+}
+
+.reports-header {
+  margin-bottom: 1.25rem;
+}
+
+.reports-title {
+  margin: 0;
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+.reports-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── KPI tiles ───────────────────────────────────────── */
+.reports-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.reports-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+.reports-kpi.is-emphasis {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.reports-kpi-value {
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--text-h);
+}
+
+.reports-kpi-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Chart cards ─────────────────────────────────────── */
+.reports-card {
+  padding: 1rem 1.1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.reports-card-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--heading);
+  font-size: 1rem;
+  color: var(--text-h);
+}
+
+.reports-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.reports-row .reports-card {
+  margin-bottom: 0;
+}
+
+.reports-empty {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.reports-muted {
+  color: var(--text-muted);
+}
+
+/* ── Legend ──────────────────────────────────────────── */
+.reports-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.reports-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reports-legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.reports-legend-value {
+  color: var(--text-h);
+}
+
+/* ── Staffing table ──────────────────────────────────── */
+.reports-table-wrapper {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.reports-table th {
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.reports-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reports-req-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.reports-req-chip {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--code-bg);
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+.reports-req-chip.is-met {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+}

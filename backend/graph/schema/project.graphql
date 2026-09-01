@@ -1,0 +1,59 @@
+enum ProjectStatus {
+  PLANNING
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+}
+
+type Project {
+  id: ID!
+  name: String!
+  contactPerson: String!
+  phone: String
+  email: String
+  status: ProjectStatus!
+  skillIds: [ID!]!
+  requirements: [SkillRequirement!]!
+  createdBy: String!
+  createdAt: String!
+  modifiedBy: String!
+  modifiedAt: String!
+}
+
+input CreateProjectInput {
+  name: String!
+  contactPerson: String!
+  phone: String
+  email: String
+  status: ProjectStatus
+}
+
+input UpdateProjectInput {
+  name: String!
+  contactPerson: String!
+  phone: String
+  email: String
+  status: ProjectStatus!
+}
+
+input SetProjectRequirementInput {
+  projectId: ID!
+  skillId: ID!
+  neededCount: Int!
+}
+
+extend type Mutation {
+  toggleProjectSkill(projectId: ID!, skillId: ID!): Project! @auth
+  updateProject(id: ID!, input: UpdateProjectInput!): Project! @auth
+  setProjectRequirement(input: SetProjectRequirementInput!): Project! @auth
+  removeProjectRequirement(projectId: ID!, skillId: ID!): Project! @auth
+}
+
+type Query {
+  projects: [Project!]! @auth
+}
+
+type Mutation {
+  createProject(input: CreateProjectInput!): Project! @auth
+  deleteProject(id: ID!): Boolean! @auth
+}

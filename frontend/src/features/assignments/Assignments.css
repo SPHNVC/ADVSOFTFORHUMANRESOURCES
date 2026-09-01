@@ -1,0 +1,312 @@
+/* ── Page layout ─────────────────────────────────────── */
+.assignments-page {
+  padding: 1.5rem;
+}
+
+.assignments-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-back {
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.btn-back:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.assignments-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.assignments-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.project-context {
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.project-not-found {
+  font-size: 0.875rem;
+  color: #dc2626;
+  margin: 0;
+}
+
+.skills-filter-hint {
+  font-size: 0.8rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.matching-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.no-match {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+/* ── Two-section layout ──────────────────────────────── */
+.assignments-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.assignment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-heading {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.empty-hint {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+/* ── Table shared ────────────────────────────────────── */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.assignments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.assignments-table thead tr {
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.assignments-table th {
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.assignments-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.assignments-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cell-primary {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+/* ── Action buttons ──────────────────────────────────── */
+.btn-assign {
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-assign:hover {
+  opacity: 0.85;
+}
+
+.btn-remove {
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-remove:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+/* ── Status badges (same palette as Resources) ───────── */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-free {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+}
+
+.badge-assigned {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge-assigned { color: #4ade80; }
+}
+
+.badge-blacklist {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge-blacklist { color: #f87171; }
+}
+
+/* ── Requirement progress ────────────────────────────── */
+.requirement-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.requirement-pill {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--code-bg);
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.requirement-pill.is-met {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.requirement-hint {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── Match filters ───────────────────────────────────── */
+.match-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.match-filters input[type='text'],
+.match-search,
+.match-filters select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.match-search {
+  flex: 1 1 160px;
+  min-width: 140px;
+}
+
+.match-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+/* ── Match score ─────────────────────────────────────── */
+.match-score {
+  display: inline-block;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  background: var(--code-bg);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.match-score.has-match {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.on-projects {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.assignments-table select {
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  font-size: 0.8rem;
+}

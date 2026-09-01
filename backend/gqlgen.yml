@@ -1,0 +1,42 @@
+schema:
+  - graph/schema/*.graphql
+
+exec:
+  filename: graph/generated/generated.go
+  package: generated
+
+model:
+  filename: graph/model/models_gen.go
+  package: model
+
+models:
+  Project:
+    model: backend/graph/model.Project
+  ProjectStatus:
+    model: backend/graph/model.ProjectStatus
+  SkillRequirement:
+    model: backend/graph/model.SkillRequirement
+  CreateProjectInput:
+    model: backend/graph/model.CreateProjectInput
+  Skill:
+    model: backend/graph/model.Skill
+  CreateSkillInput:
+    model: backend/graph/model.CreateSkillInput
+  Resource:
+    model: backend/graph/model.Resource
+  CreateResourceInput:
+    model: backend/graph/model.CreateResourceInput
+  ResourceStatus:
+    model: backend/graph/model.ResourceStatus
+  Assignment:
+    model: backend/graph/model.Assignment
+  Comment:
+    model: backend/graph/model.Comment
+  AddCommentInput:
+    model: backend/graph/model.AddCommentInput
+
+resolver:
+  layout: follow-schema
+  dir: graph
+  package: graph
+  filename_template: "{name}.resolvers.go"

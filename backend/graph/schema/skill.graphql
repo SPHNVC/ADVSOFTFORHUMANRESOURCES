@@ -1,0 +1,19 @@
+type Skill {
+  id: ID!
+  name: String!
+  description: String
+}
+
+input CreateSkillInput {
+  name: String!
+  description: String
+}
+
+extend type Query {
+  skills: [Skill!]! @auth
+}
+
+extend type Mutation {
+  createSkill(input: CreateSkillInput!): Skill! @auth
+  deleteSkill(id: ID!): Boolean! @auth
+}

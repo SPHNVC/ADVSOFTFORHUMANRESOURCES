@@ -1,0 +1,116 @@
+.language-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* AddResource.css sets `.form-section select { width: 100% }` — an unscoped
+   rule that also matches these rows and makes the dropdown consume the whole
+   line, pushing the Remove button out of view. These rows lay themselves out
+   with flex, so the width must be reset back to auto. */
+.language-section select,
+.language-section input {
+  width: auto;
+  box-sizing: border-box;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.lang-empty {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #6b7280);
+}
+
+.lang-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.lang-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-h);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Sized so the level dropdown never crowds out the Remove button.
+   min-width:0 is required — a select's intrinsic width is its widest
+   option, which would otherwise refuse to shrink and overflow the row. */
+.lang-level {
+  flex: 0 1 9.5rem;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.lang-row .btn-remove { flex-shrink: 0; }
+
+.lang-add {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lang-picker,
+.lang-new-input {
+  flex: 1 1 8rem;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.lang-add .btn-primary,
+.lang-add .btn-link { flex-shrink: 0; }
+
+.btn-link {
+  padding: 0.35rem 0.4rem;
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.btn-link:hover { opacity: 0.8; }
+
+.lang-error {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--danger, #dc2626);
+}
+
+/* Narrow columns: let the name take a full line so the level dropdown and
+   Remove button still sit side by side rather than overflowing. */
+@media (max-width: 720px) {
+  .lang-row { flex-wrap: wrap; }
+  .lang-name { flex: 1 0 100%; }
+  .lang-level { flex: 1 1 auto; }
+}

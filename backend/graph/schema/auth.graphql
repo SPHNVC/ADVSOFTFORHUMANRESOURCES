@@ -1,0 +1,22 @@
+directive @auth on FIELD_DEFINITION
+
+type AuthUser {
+  id: ID!
+  username: String!
+  email: String!
+  displayName: String!
+}
+
+type AuthPayload {
+  token: String!
+  user: AuthUser!
+}
+
+input LoginInput {
+  usernameOrEmail: String!
+  password: String!
+}
+
+extend type Mutation {
+  login(input: LoginInput!): AuthPayload!
+}

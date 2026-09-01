@@ -1,0 +1,21 @@
+type Comment {
+  id: ID!
+  author: String!
+  text: String!
+  at: String!
+}
+
+input AddCommentInput {
+  entityId: ID!
+  text: String!
+}
+
+extend type Query {
+  projectComments(projectId: ID!): [Comment!]! @auth
+  resourceComments(resourceId: ID!): [Comment!]! @auth
+}
+
+extend type Mutation {
+  addProjectComment(input: AddCommentInput!): Comment! @auth
+  addResourceComment(input: AddCommentInput!): Comment! @auth
+}
